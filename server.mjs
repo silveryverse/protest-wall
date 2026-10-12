@@ -518,7 +518,7 @@ export function createApp(options = {}) {
 const isDirect = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isDirect) {
   const port = Number(process.env.PORT ?? 4173);
-  const host = process.env.HOST || '127.0.0.1';
+  const host = process.env.HOST || '0.0.0.0';
   if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('PORT must be between 1 and 65535');
   const server = createApp({});
   server.on('error', (error) => { console.error(error); process.exitCode = 1; });
